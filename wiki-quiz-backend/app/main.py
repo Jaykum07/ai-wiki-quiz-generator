@@ -15,11 +15,15 @@ app = FastAPI(title="Wiki Quiz Generator API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],   # ✅ for deployment
+    allow_origins=[
+        "http://localhost:5173",
+        "https://ai-wiki-quiz-generator-3cq6.onrender.com"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 def get_db():
     db = SessionLocal()
